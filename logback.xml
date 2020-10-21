@@ -1,19 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-
-  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+  <appender name="Console"
+    class="ch.qos.logback.core.ConsoleAppender">
     <layout class="ch.qos.logback.classic.PatternLayout">
       <Pattern>
-        %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+        %black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %blue(%logger{100}): %msg%n%throwable
       </Pattern>
     </layout>
   </appender>
 
-  <logger name="com.example.hellospring" level="debug" additivity="false">
-    <appender-ref ref="CONSOLE"/>
-  </logger>
-
-  <root level="error">
-    <appender-ref ref="CONSOLE"/>
+  <root level="INFO">
+    <appender-ref ref="Console" />
   </root>
-
 </configuration>
